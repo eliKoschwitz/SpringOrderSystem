@@ -2,14 +2,14 @@ package com.example.bestellsystemspringversion.repository;
 
 import com.example.bestellsystemspringversion.model.Product;
 
-import com.example.bestellsystemspringversion.service.ShopService;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-//@Component
+@Component
 public class ProductRepo {
     private List<Product> products = new ArrayList<>();
 

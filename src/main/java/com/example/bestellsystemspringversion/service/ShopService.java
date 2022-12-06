@@ -14,8 +14,15 @@ import java.util.List;
 @Data
 @Service
 public class ShopService {
-    private OrderRepo orderRepo = new OrderRepo();
-    private ProductRepo productRepo = new ProductRepo();
+    //private OrderRepo orderRepo = new OrderRepo();
+    //private ProductRepo productRepo = new ProductRepo();
+    private OrderRepo orderRepo;
+    private ProductRepo productRepo;
+
+    public ShopService(OrderRepo orderRepo, ProductRepo productRepo) {
+        this.orderRepo = orderRepo;
+        this.productRepo = productRepo;
+    }
 
     public void addProduct(Product product) {
         productRepo.addProduct(product);
