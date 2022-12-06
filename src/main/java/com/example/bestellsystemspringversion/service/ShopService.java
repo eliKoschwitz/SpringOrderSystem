@@ -6,11 +6,13 @@ import com.example.bestellsystemspringversion.repository.OrderRepo;
 import com.example.bestellsystemspringversion.repository.ProductRepo;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Data
-
+@Service
 public class ShopService {
     private OrderRepo orderRepo = new OrderRepo();
     private ProductRepo productRepo = new ProductRepo();

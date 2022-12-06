@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @RestController
 @RequestMapping("/")
 public class OrderSysController {
 
-    private final static ShopService shopService = new ShopService();
+    //private final static ShopService shopService = new ShopService(); EIN OBJEKT IN DER GANZEN APP
+    private ShopService shopService;
+    public OrderSysController(ShopService shopService) {
+        this.shopService = shopService;
+    }
 
     @GetMapping("/api/products")
     public List<Product> listProducts(){
@@ -38,16 +42,16 @@ public class OrderSysController {
         return shopService.getOrder(id);
     }
 
-    /* AUFGABE 5 POST /api/orders/{id} (int-array als Body)
-    // das passt noch nicht von den Übergabeparametern
-    @PostMapping("/api/orders/{id}")
-    public int[] giveOrders(@PathVariable int id, @RequestBody int[] newOrders){
-        shopService.addOrder(newOrders[id]);
-        return
+    // AUFGABE 5 POST /api/orders/{id} (int-array als Body) Order benötigt eine liste von Produkten...
+    @PostMapping("/api/orders/define")
+    public void giveOrders(@RequestBody Order newOrders){
+        shopService.addOrder(newOrders);
     }
-     */
 
     //Bonus AUFGABE 1
+    /*
+    LOGIC IN KLASSEN UM BAUEN (arrayList.remove()
+    */
 
     //Bonus AUFGABE 2
     @PostMapping("/api/orders/add")

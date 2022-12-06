@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Data
+//@Component
 public class OrderRepo {
 
     private List<Order> orders = new ArrayList<>();
